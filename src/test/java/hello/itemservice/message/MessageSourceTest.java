@@ -1,6 +1,5 @@
 package hello.itemservice.message;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +24,8 @@ public class MessageSourceTest {
 
     @Test
     void notFoundMessageCode() {
-        assertThatThrownBy(() -> ms.getMessage("no_code", null, null)).isInstanceOf(NoSuchMessageException.class);
+        assertThatThrownBy(() -> ms.getMessage("no_code", null, null))
+                .isInstanceOf(NoSuchMessageException.class);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class MessageSourceTest {
     @Test
     void argumentMessage() {
         String result = ms.getMessage("hello.name", new Object[]{"Spring"}, null);
-        assertThat(result).isEqualTo("안녕 Spring"); //안녕 {0} 에서 {0} 자리에 Spring이 넘어감
+        assertThat(result).isEqualTo("안녕 Spring");
     }
 
     @Test
