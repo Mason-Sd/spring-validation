@@ -49,7 +49,7 @@ public class ValidationItemControllerV1 {
 
         //검증 로직
         if (!StringUtils.hasText(item.getItemName())) {
-            errors.put("itenName", "상품 이름은 필수입니다");
+            errors.put("itemName", "상품 이름은 필수입니다");
         }
         if(item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
             errors.put("price", "가격은 1,000 ~ 1,000,000 까지 허용합니다");
